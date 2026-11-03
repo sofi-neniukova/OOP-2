@@ -26,11 +26,9 @@ public:
 
 class Shape
 {
-private: 	
-
-protected:
-	int x1, y1, x2, y2;
 public:
+	int x1, y1, x2, y2;
+
 	Shape() : x1(0), y1(0), x2(0), y2(0)
 	{
 		cout << "Shape()\n";
@@ -55,7 +53,7 @@ public:
 	}
 };
 
-class Line : Shape
+class Line : public Shape
 {
 public:
 	int length;
@@ -88,13 +86,6 @@ void Shape::move(int dx, int dy)
 
 int main()
 {
-	Line l;
-	
-
-	Line n(l);
-	l.length = -8;
-	n.length = 52;
-	l.draw();
-	n.draw();
-	
+	Shape *s = new Line();
+	s->draw();
 }
