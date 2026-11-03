@@ -72,7 +72,12 @@ public:
 	}
 	void draw()
 	{
-		cout << this->x1 << " " << this->y1 << " " << "length: " << this->length << ", " << this->x2 << " " << this->y2 << endl;
+		Shape::draw();
+		cout << "Length: " << length << endl;
+	}
+	~Line()
+	{
+		cout << "~Line()\n";
 	}
 };
 
@@ -86,6 +91,6 @@ void Shape::move(int dx, int dy)
 
 int main()
 {
-	Shape *s = new Line();
-	s->draw();
+	Line l;
+	l.draw();
 }
