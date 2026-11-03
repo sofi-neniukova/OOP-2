@@ -81,6 +81,49 @@ public:
 	}
 };
 
+class B
+{
+public:
+	int num;
+	B() : num(0)
+	{
+		cout << "B()\n";
+	}
+	B(int n) : num(n)
+	{
+		cout << "B(int n)\n";
+	}
+	B(B& b) : num(b.num)
+	{
+		cout << "B(B& b)\n";
+	}
+	~B()
+	{
+		cout << "~B()\n";
+	}
+};
+class A
+{
+public:
+	B b;
+	A() : b(0)
+	{
+		cout << "A()\n";
+	}
+	A(B& b) : b(b)
+	{
+		cout << "A(B b)\n";
+	}
+	A(A& a) : b(a.b)
+	{
+		cout << "A(A& a)\n";
+	}
+	~A()
+	{
+		cout << "~A()\n";
+	}
+
+};
 void Shape::move(int dx, int dy)
 {
 	x1 = x1 + dx;
@@ -91,6 +134,11 @@ void Shape::move(int dx, int dy)
 
 int main()
 {
-	Line l;
-	l.draw();
+	B b(123);
+	cout << "до блока\n";
+	{
+		cout << "блок выполняется\n";
+		A a(b);
+	}
+	cout << "после блока\n";
 }
