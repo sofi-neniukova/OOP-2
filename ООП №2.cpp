@@ -57,9 +57,9 @@ public:
 
 class Line : Shape
 {
-private:
-	int length;
 public:
+	int length;
+
 	Line() : length(0)
 	{
 		cout << "Line()\n";
@@ -89,12 +89,12 @@ void Shape::move(int dx, int dy)
 int main()
 {
 	Line l;
-	l.draw();
-	Shape s(10, 20, 30, 40);
-	s.move(5, 5);
-	s.draw();
-	Line ll(12, 12, 14, 14, 20);
-	ll.draw();
-	Line n(l);
+	
 
+	Line n(l);
+	l.length = -8;
+	n.length = 52;
+	l.draw();
+	n.draw();
+	
 }
