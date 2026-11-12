@@ -34,6 +34,38 @@ public:
 };
 
 
+class Round
+{
+protected:
+	Point* p1;
+	Point* p2;
+public:
+	Round()
+	{
+		cout << "Round()\n";
+		p1 = new Point;
+		p2 = new Point;
+	}
+	Round(int x1, int y1, int x2, int y2)
+	{
+		cout << "Round(int x, int y)\n";
+		p1 = new Point(x1, y1);
+		p2 = new Point(x2, y2);
+	}
+	Round(const Round& r)
+	{
+		cout << "Round(const Round& r)\n";
+		p1 = new Point(*(r.p1));
+		p2 = new Point(*(r.p2));
+	}
+	~Round()
+	{
+		cout << "~Round()\n";
+		delete p1;
+		delete p2;
+	}
+};
+
 class Shape
 {
 protected:
